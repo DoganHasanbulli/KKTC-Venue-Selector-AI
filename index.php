@@ -19,14 +19,18 @@ require_once __DIR__ . '/config.php';
         </nav>
     </header>
 
-    <main class="kapsayici">
-        <section class="hero">
+    <main class="kapsayici index-minimal">
+        <section class="hero hero-sade">
             <h2>Bugün Nereye Gidelim?</h2>
-            <p>Kategori ve şehir seç, dev butona bas; KKTC'den rastgele bir mekan gelsin!</p>
+            <p>Kategori ve şehir seç. Sonra tek dokunuşla rastgele bir mekan keşfet.</p>
         </section>
 
-        <section class="filtre-kart">
-            <h3>Kategori Seç</h3>
+        <section class="filtre-kart filtre-sade">
+            <div class="filtre-baslik">
+                <h3>Filtreler</h3>
+                <p class="soluk">Önce seçimini yap, sonra dev daire butona bas.</p>
+            </div>
+
             <div class="kategori-grid" id="kategoriGrid">
                 <button type="button" class="kategori-btn secili" data-kategori="tum">✨<span>Tümü</span></button>
                 <button type="button" class="kategori-btn" data-kategori="cafe">☕<span>Cafe</span></button>
@@ -34,15 +38,21 @@ require_once __DIR__ . '/config.php';
                 <button type="button" class="kategori-btn" data-kategori="restoran">🍽️<span>Restoran</span></button>
             </div>
 
-            <label for="sehirSecimi">Şehir Seç</label>
-            <select id="sehirSecimi">
-                <option value="Tümü">Tümü</option>
-                <?php foreach (SEHIRLER as $sehir): ?>
-                    <option value="<?= guvenliMetin($sehir) ?>"><?= guvenliMetin($sehir) ?></option>
-                <?php endforeach; ?>
-            </select>
+            <div class="sehir-alani">
+                <label for="sehirSecimi">Şehir</label>
+                <select id="sehirSecimi">
+                    <option value="Tümü">Tümü</option>
+                    <?php foreach (SEHIRLER as $sehir): ?>
+                        <option value="<?= guvenliMetin($sehir) ?>"><?= guvenliMetin($sehir) ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </section>
 
-            <button id="rastgeleSecBtn" class="rastgele-btn" type="button">Rastgele Seç</button>
+        <section class="secim-sahnesi" aria-label="Rastgele seçim sahnesi">
+            <button id="rastgeleSecBtn" class="rastgele-btn daire-btn" type="button">
+                <span class="btn-yazi">Rastgele Seç</span>
+            </button>
             <p id="durumMesaji" class="durum-mesaji" aria-live="polite"></p>
         </section>
 
@@ -53,7 +63,7 @@ require_once __DIR__ . '/config.php';
             </div>
         </section>
 
-        <section class="kampanya-kart">
+        <section class="kampanya-kart kampanya-sade">
             <h3>Bugünün Kampanyaları</h3>
             <div id="kampanyaListesi" class="kampanya-listesi">
                 <p>Kampanyalar yükleniyor...</p>

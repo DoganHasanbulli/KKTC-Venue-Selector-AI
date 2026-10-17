@@ -28,6 +28,7 @@
         const kategoriGrid = document.getElementById('kategoriGrid');
         const sehirSecimi = document.getElementById('sehirSecimi');
         const rastgeleSecBtn = document.getElementById('rastgeleSecBtn');
+        const btnYazi = rastgeleSecBtn.querySelector('.btn-yazi');
         const sonucKart = document.getElementById('sonucKart');
         const sonucIcerik = sonucKart.querySelector('.sonuc-icerik');
         const durumMesaji = document.getElementById('durumMesaji');
@@ -43,6 +44,29 @@
             kategoriGrid.querySelectorAll('.kategori-btn').forEach((el) => el.classList.remove('secili'));
             btn.classList.add('secili');
         });
+
+        function tiklamaEfektiOlustur(event) {
+            const rect = rastgeleSecBtn.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'btn-ripple';
+
+            const boyut = Math.max(rect.width, rect.height) * 0.56;
+            const x = event.clientX - rect.left - boyut / 2;
+            const y = event.clientY - rect.top - boyut / 2;
+
+            ripple.style.width = `${boyut}px`;
+            ripple.style.height = `${boyut}px`;
+            ripple.style.left = `${x}px`;
+            ripple.style.top = `${y}px`;
+
+            rastgeleSecBtn.appendChild(ripple);
+            rastgeleSecBtn.classList.add('tiklandi');
+
+            setTimeout(() => {
+                ripple.remove();
+                rastgeleSecBtn.classList.remove('tiklandi');
+            }, 680);
+        }
 
         async function kampanyalariGetir() {
             try {
@@ -67,9 +91,10 @@
             }
         }
 
-        async function rastgeleMekanSec() {
+        async function rastgeleMekanSec(event) {
+            tiklamaEfektiOlustur(event);
             rastgeleSecBtn.disabled = true;
-            rastgeleSecBtn.textContent = 'Seçiliyor...';
+            btnYazi.textContent = 'Seçiliyor...';
             durumMesaji.textContent = 'Sana uygun mekan aranıyor...';
 
             try {
@@ -114,7 +139,7 @@
                 durumMesaji.textContent = 'Sunucuya bağlanılamadı.';
             } finally {
                 rastgeleSecBtn.disabled = false;
-                rastgeleSecBtn.textContent = 'Rastgele Seç';
+                btnYazi.textContent = 'Rastgele Seç';
             }
         }
 

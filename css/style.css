@@ -361,3 +361,268 @@ th {
         font-size: 1.35rem;
     }
 }
+
+
+/* ===== Ana Sayfa Minimal Yeniden Tasarım (Sadece index) ===== */
+body[data-page="index"] {
+    background: #f5f7fb;
+    color: #1b2430;
+}
+
+body[data-page="index"] .ust-menu {
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(20, 29, 43, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+body[data-page="index"] .ust-menu nav a:hover,
+body[data-page="index"] .ust-menu nav a.aktif {
+    border-color: rgba(39, 86, 255, 0.35);
+    background: rgba(39, 86, 255, 0.08);
+}
+
+body[data-page="index"] .index-minimal {
+    width: min(920px, 92%);
+    gap: 1.8rem;
+    margin-top: 2.1rem;
+    margin-bottom: 3.2rem;
+}
+
+body[data-page="index"] .hero,
+body[data-page="index"] .filtre-kart,
+body[data-page="index"] .sonuc-kart,
+body[data-page="index"] .kampanya-kart {
+    background: #ffffff;
+    border: 1px solid rgba(20, 29, 43, 0.08);
+    border-radius: 18px;
+    box-shadow: 0 8px 26px rgba(17, 29, 52, 0.06);
+}
+
+body[data-page="index"] .hero-sade {
+    text-align: center;
+    padding: 1.6rem 1.4rem;
+}
+
+body[data-page="index"] .hero-sade h2 {
+    margin-bottom: 0.45rem;
+    font-size: clamp(1.7rem, 3vw, 2.2rem);
+}
+
+body[data-page="index"] .hero-sade p,
+body[data-page="index"] .durum-mesaji,
+body[data-page="index"] .soluk,
+body[data-page="index"] .kampanya-item small {
+    color: #536079;
+}
+
+body[data-page="index"] .filtre-sade {
+    padding: 1.2rem 1.25rem 1.35rem;
+}
+
+body[data-page="index"] .filtre-baslik {
+    margin-bottom: 0.9rem;
+}
+
+body[data-page="index"] .filtre-baslik h3 {
+    margin-bottom: 0.3rem;
+}
+
+body[data-page="index"] .kategori-grid {
+    margin: 0.6rem 0 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.52rem;
+}
+
+body[data-page="index"] .kategori-btn {
+    min-height: 76px;
+    border-radius: 12px;
+    background: #f2f5fc;
+    border: 1px solid rgba(20, 29, 43, 0.1);
+    color: #202a3c;
+    font-size: 1.15rem;
+    transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.18s ease, background-color 0.2s ease;
+}
+
+body[data-page="index"] .kategori-btn span {
+    font-size: 0.84rem;
+}
+
+body[data-page="index"] .kategori-btn:hover {
+    transform: translateY(-1px);
+    border-color: rgba(39, 86, 255, 0.38);
+    box-shadow: 0 6px 18px rgba(39, 86, 255, 0.14);
+}
+
+body[data-page="index"] .kategori-btn.secili {
+    background: #1e335d;
+    color: #f7f9ff;
+    border-color: #1e335d;
+}
+
+body[data-page="index"] .sehir-alani {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+body[data-page="index"] .sehir-alani label {
+    color: #26324a;
+}
+
+body[data-page="index"] .sehir-alani select {
+    border-radius: 12px;
+    border: 1px solid rgba(20, 29, 43, 0.16);
+    background: #ffffff;
+    color: #1f2940;
+    padding: 0.72rem 0.78rem;
+}
+
+body[data-page="index"] .secim-sahnesi {
+    display: grid;
+    place-items: center;
+    gap: 0.85rem;
+    padding: 0.9rem 0 0.35rem;
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn {
+    width: clamp(220px, 34vw, 320px);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 0;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: linear-gradient(140deg, #2756ff 0%, #6a5bff 45%, #1fbad6 100%);
+    box-shadow: 0 20px 40px rgba(39, 86, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transform: translateZ(0);
+    transition: transform 0.24s ease, box-shadow 0.28s ease, filter 0.25s ease;
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn::before {
+    content: "";
+    position: absolute;
+    inset: 11%;
+    border-radius: 50%;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0));
+    pointer-events: none;
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn::after {
+    content: "";
+    position: absolute;
+    width: 190%;
+    height: 190%;
+    left: -45%;
+    top: -45%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.24), transparent 35%, rgba(255, 255, 255, 0.24) 70%, transparent);
+    animation: daireIsilti 5.8s linear infinite;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+body[data-page="index"] .btn-yazi {
+    position: relative;
+    z-index: 2;
+    font-weight: 800;
+    font-size: clamp(1.3rem, 2.9vw, 2rem);
+    letter-spacing: 0.45px;
+    text-align: center;
+    text-wrap: balance;
+    padding: 0 1rem;
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn:hover:not(:disabled) {
+    transform: scale(1.04) translateY(-1px);
+    box-shadow: 0 26px 50px rgba(39, 86, 255, 0.36), 0 0 0 10px rgba(39, 86, 255, 0.08);
+    filter: saturate(1.07);
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn:active:not(:disabled),
+body[data-page="index"] .rastgele-btn.daire-btn.tiklandi:not(:disabled) {
+    transform: scale(0.975);
+    box-shadow: 0 14px 32px rgba(39, 86, 255, 0.34), 0 0 0 14px rgba(39, 86, 255, 0.12);
+}
+
+body[data-page="index"] .rastgele-btn.daire-btn:disabled {
+    opacity: 0.8;
+    cursor: progress;
+}
+
+body[data-page="index"] .btn-ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: scale(0);
+    animation: dalgaYayilimi 0.66s ease-out forwards;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.58) 0%, rgba(255, 255, 255, 0.22) 36%, rgba(255, 255, 255, 0) 72%);
+}
+
+body[data-page="index"] #sonucKart {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+body[data-page="index"] #sonucKart.animasyon {
+    animation: sonucAkis 0.56s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+body[data-page="index"] .kampanya-sade .kampanya-item,
+body[data-page="index"] .kampanya-vurgu {
+    border: 1px solid rgba(20, 29, 43, 0.1);
+    background: #f6f8ff;
+}
+
+body[data-page="index"] .rozet {
+    background: #d8e2ff;
+    color: #21365f;
+}
+
+@keyframes daireIsilti {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dalgaYayilimi {
+    to {
+        transform: scale(2.75);
+        opacity: 0;
+    }
+}
+
+@keyframes sonucAkis {
+    0% {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 780px) {
+    body[data-page="index"] .index-minimal {
+        gap: 1.25rem;
+    }
+
+    body[data-page="index"] .kategori-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-page="index"] .rastgele-btn.daire-btn {
+        width: clamp(210px, 62vw, 280px);
+    }
+
+    body[data-page="index"] .btn-yazi {
+        font-size: clamp(1.2rem, 5vw, 1.55rem);
+    }
+}
