@@ -1,0 +1,363 @@
+:root {
+    --arka: #0b1020;
+    --arka-ikincil: #111a33;
+    --kart: #182443;
+    --yazi: #f7f8ff;
+    --yazi-soluk: #b6bfd9;
+    --vurgu: #7c5cff;
+    --vurgu-2: #00d4b0;
+    --tehlike: #ff5f7a;
+    --sinir: rgba(255, 255, 255, 0.12);
+    --golge: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: radial-gradient(circle at top right, #1b2450 0%, var(--arka) 60%);
+    color: var(--yazi);
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.ust-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(10, 14, 30, 0.9);
+    border-bottom: 1px solid var(--sinir);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(6px);
+}
+
+.ust-menu h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.ust-menu nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.ust-menu nav a {
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+
+.ust-menu nav a:hover,
+.ust-menu nav a.aktif {
+    border-color: var(--vurgu);
+    background: rgba(124, 92, 255, 0.18);
+}
+
+.kapsayici {
+    width: min(1100px, 94%);
+    margin: 1.5rem auto 2.5rem;
+    display: grid;
+    gap: 1.1rem;
+}
+
+.hero,
+.filtre-kart,
+.sonuc-kart,
+.kampanya-kart,
+.liste-kart,
+.admin-kart {
+    background: linear-gradient(180deg, rgba(24, 36, 67, 0.96), rgba(17, 26, 51, 0.96));
+    border: 1px solid var(--sinir);
+    border-radius: 16px;
+    padding: 1rem 1.2rem;
+    box-shadow: var(--golge);
+}
+
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 0;
+}
+
+.hero p,
+.durum-mesaji,
+small,
+.soluk {
+    color: var(--yazi-soluk);
+}
+
+.kategori-grid {
+    margin: 0.7rem 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.6rem;
+}
+
+.kategori-btn {
+    border: 1px solid var(--sinir);
+    background: #243458;
+    color: var(--yazi);
+    border-radius: 14px;
+    padding: 0.8rem 0.6rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+}
+
+.kategori-btn span {
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.kategori-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--vurgu-2);
+}
+
+.kategori-btn.secili {
+    background: linear-gradient(160deg, var(--vurgu), #4aa7ff);
+    border-color: transparent;
+}
+
+label {
+    display: block;
+    margin: 0.45rem 0 0.35rem;
+    font-weight: 600;
+}
+
+select,
+input,
+textarea,
+button {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--sinir);
+    padding: 0.62rem 0.72rem;
+    background: #0f1833;
+    color: var(--yazi);
+    font-size: 0.96rem;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+button {
+    cursor: pointer;
+}
+
+.rastgele-btn {
+    margin-top: 1rem;
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    min-height: 98px;
+    background: linear-gradient(140deg, #ff7f50, #ff4f9b);
+    border: none;
+    box-shadow: 0 12px 28px rgba(255, 88, 153, 0.35);
+}
+
+.rastgele-btn:disabled {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+.sonuc-kart.animasyon {
+    animation: belirme 0.45s ease;
+}
+
+@keyframes belirme {
+    from {
+        opacity: 0.35;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rozet {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--vurgu-2), #00a6ff);
+    color: #061123;
+    font-weight: 800;
+    font-size: 0.76rem;
+    padding: 0.22rem 0.52rem;
+    border-radius: 999px;
+    margin-right: 0.35rem;
+}
+
+.kampanya-vurgu,
+.kampanya-item {
+    border: 1px dashed rgba(0, 212, 176, 0.65);
+    border-radius: 12px;
+    padding: 0.66rem 0.78rem;
+    margin-top: 0.75rem;
+    background: rgba(0, 212, 176, 0.08);
+}
+
+.kampanya-listesi {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.filtre-cift {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+}
+
+.mekan-liste-grid,
+.admin-grid {
+    display: grid;
+    gap: 0.72rem;
+}
+
+.liste-item,
+.istatistik-kutu {
+    border: 1px solid var(--sinir);
+    border-radius: 12px;
+    background: rgba(18, 30, 60, 0.8);
+    padding: 0.72rem;
+}
+
+.admin-ust {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.admin-cikis {
+    width: auto;
+    padding: 0.55rem 1rem;
+    background: linear-gradient(145deg, #ff5f7a, #ff2f58);
+    border: none;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+}
+
+.tablo-kapsayici {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+th,
+td {
+    border: 1px solid var(--sinir);
+    padding: 0.55rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: rgba(124, 92, 255, 0.16);
+}
+
+.inline-form {
+    display: inline-flex;
+    gap: 0.35rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inline-form button,
+.kucuk-btn {
+    width: auto;
+    padding: 0.45rem 0.7rem;
+    font-size: 0.84rem;
+}
+
+.dugme-yesil {
+    background: linear-gradient(145deg, #00c27f, #00a76c);
+    border: none;
+}
+
+.dugme-mavi {
+    background: linear-gradient(145deg, #4f74ff, #3761ff);
+    border: none;
+}
+
+.dugme-kirmizi {
+    background: linear-gradient(145deg, #ff5f7a, #ff2f58);
+    border: none;
+}
+
+.uyari,
+.hata,
+.basari {
+    border-radius: 10px;
+    padding: 0.65rem 0.75rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.uyari {
+    background: rgba(255, 191, 71, 0.15);
+    border: 1px solid rgba(255, 191, 71, 0.5);
+}
+
+.hata {
+    background: rgba(255, 95, 122, 0.14);
+    border: 1px solid rgba(255, 95, 122, 0.55);
+}
+
+.basari {
+    background: rgba(0, 212, 176, 0.12);
+    border: 1px solid rgba(0, 212, 176, 0.5);
+}
+
+.login-kutu {
+    width: min(460px, 94%);
+    margin: 8vh auto;
+}
+
+@media (max-width: 780px) {
+    .ust-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .filtre-cift,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .rastgele-btn {
+        min-height: 84px;
+        font-size: 1.35rem;
+    }
+}
