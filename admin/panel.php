@@ -195,16 +195,22 @@ $aktifMekanlar = $pdo->query('SELECT id, ad, sehir, kategori FROM mekanlar WHERE
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Paneli</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=20261019">
 </head>
 <body>
     <header class="ust-menu">
-        <h1>KKTC Rastgele Mekan Seçici - Admin</h1>
-        <nav>
-            <a href="../index.php">Ana Sayfa</a>
-            <a href="../mekanlar.php">Mekanlar</a>
-            <a href="panel.php" class="aktif">Admin Panel</a>
-        </nav>
+        <a class="marka" href="panel.php">
+            <span class="marka-logo">🛠️</span>
+            <span class="marka-yazi">KKTC<strong>Admin Panel</strong></span>
+        </a>
+        <div class="ust-sag">
+            <nav>
+                <a href="../index.php">Ana Sayfa</a>
+                <a href="../mekanlar.php">Mekanlar</a>
+                <a href="panel.php" class="aktif">Admin Panel</a>
+            </nav>
+            <button type="button" class="tema-dugme" aria-label="Temayı değiştir">🌙</button>
+        </div>
     </header>
 
     <main class="kapsayici">
@@ -418,5 +424,6 @@ $aktifMekanlar = $pdo->query('SELECT id, ad, sehir, kategori FROM mekanlar WHERE
             </div>
         </section>
     </main>
+    <script src="../js/main.js?v=20261019"></script>
 </body>
 </html>

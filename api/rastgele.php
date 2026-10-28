@@ -10,6 +10,7 @@ $today = date('Y-m-d');
 
 $sehir = trim($_GET['sehir'] ?? 'Tümü');
 $kategori = trim($_GET['kategori'] ?? 'tum');
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 
 $sehirTumMu = in_array(mb_strtolower($sehir), ['tüm', 'tümü', 'tum'], true);
 $kategoriTumMu = in_array(mb_strtolower($kategori), ['tüm', 'tümü', 'tum'], true);
@@ -71,7 +72,12 @@ if (!$kategoriTumMu) {
     $params[':kategori'] = $kategori;
 }
 
-$sql .= ' ORDER BY RANDOM() LIMIT 1';
+if ($id > 0) {
+    $sql .= ' AND m.id = :id LIMIT 1';
+    $params[':id'] = $id;
+} else {
+    $sql .= ' ORDER BY RANDOM() LIMIT 1';
+}
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
@@ -89,6 +95,7 @@ if (!$mekan) {
 }
 
 $mekan['kampanya_var'] = !empty($mekan['kampanya_baslik']);
+$mekan['populer'] = populerMi($mekan['ad']);
 
 echo json_encode([
     'success' => true,

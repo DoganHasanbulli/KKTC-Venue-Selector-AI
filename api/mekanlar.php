@@ -66,6 +66,11 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $mekanlar = $stmt->fetchAll();
 
+foreach ($mekanlar as &$mekan) {
+    $mekan['populer'] = populerMi($mekan['ad']);
+}
+unset($mekan);
+
 echo json_encode([
     'success' => true,
     'count' => count($mekanlar),

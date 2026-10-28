@@ -1,0 +1,16 @@
+# Metin dosyalarında satır sonlarını repoda LF olarak sakla
+* text=auto eol=lf
+
+# Windows betikleri CRLF olmalı
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# İkili dosyalar
+*.db binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
