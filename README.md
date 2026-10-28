@@ -67,8 +67,8 @@ Saf PHP + SQLite ile yazıldığı için harici bağımlılık, paket yöneticis
 ### 1. Projeyi klonlayın
 
 ```bash
-git clone https://github.com/<kullanici-adiniz>/kktc_mekan_secici.git
-cd kktc_mekan_secici
+git clone https://github.com/DoganHasanbulli/KKTC-Venue-Selector-AI.git
+cd KKTC-Venue-Selector-AI
 ```
 
 ### 2. PHP yerleşik sunucusu (en hızlı yol)
